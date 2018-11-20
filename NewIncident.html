@@ -1,0 +1,69 @@
+<html>
+<title> New Incident </title>
+
+<form>
+        Title: <br>
+        <input type = “text” style = "width: 400px" name = “IncidentTitle”><br>
+
+        <!--Status options for the incidents-->
+        Status:
+        <select name="Status">
+                <option value="" disabled selected>Select One</option>
+                <option value = "open">Open</option>
+                <option value = "closed">Closed</option>
+                <option value = "stalled">Stalled</option>
+        </select>
+        <br>
+
+        <!--Contact information of user-->
+        <br>Contact Information <br>
+
+        Last Name: <br>
+        <input type = "text" name = "LastName"><br>
+        First Name: <br>
+        <input type = "text" name = "FirstName"><br>
+        Email Address: <br>
+        <input type = "text" name = "Email"><br>
+        Job: <br>
+        <input type = "text" name = "Job"><br>
+
+        <!--Information of the Indicent-->
+        <br>Issue Information<br>
+
+        <!--Scrip to allow, If Other, then specify-->
+        <script type="text/javascript">
+        function showfield(name){
+                if(name=='Other')document.getElementById('div1').style.display="block";
+                else document.getElementById('div1').style.display="none";
+        }
+
+        function hidefield() {
+                document.getElementById('div1').style.display='none';
+        }
+        </script>
+
+        <body onload="hidefield()">
+
+        Category: <br>
+        <select name = "Category" onchange="showfield(this.options[this.selectedIndex].value)">
+                <option value="" disabled selected>Select One</option>
+                <option value="phishing">Phishing</option>
+                <option value="dos">Denial of Service</option>
+                <option value="virus">Worm or Virus</option>
+                <option value="intrusion">Intrusion</option>
+                <option value="Other">Other</option>
+        </select>
+
+        <!--Script reacts here: if other -> specify-->
+        <div id="div1">If Other: <input type="text" name="whatever" /></div>
+
+        IP Address: <br>
+        <input type = "text" name = "IP"><br>
+
+        <!--Description of the Incident-->
+        <br>Description: <br>
+        <textarea name="textarea" style="width:550px;height:150px;"></textarea>
+
+        </form>
+</html>
+

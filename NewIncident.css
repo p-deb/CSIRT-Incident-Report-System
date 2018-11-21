@@ -1,0 +1,56 @@
+h1 {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+body {
+  font-family: "Courier New";
+
+}
+
+.SectionTitle {
+  border: 1px;
+  display: inline-block;
+  border-style: dashed; /*prevents overlaping*/
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 1px;
+  line-height: 25px; /*adjusts the height of the section title, relative to border*/
+  width: 97%; /*will adjust to the size of the screen*/
+  height: 25px;
+  background-color: #e6e6e6;
+}
+
+input[type=text]:focus {
+    border: 2px solid #555;
+}
+
+.SubmitTicket input[type=button], input[type=submit], input[type=reset] {
+    background-color: #4CAF50;
+    border: 1px;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.AddContacts input[type=button] {
+    background-color: #0099ff;
+    border: 1px;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+}
+
+.row {
+  border: 1px;
+  overflow: hidden;
+}
+
+.col {
+  float: left;
+  width: 50%;
+}

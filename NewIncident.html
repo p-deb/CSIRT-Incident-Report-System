@@ -1,69 +1,93 @@
 <html>
-<title> New Incident </title>
+    <title>New Incident</title>
 
-<form>
-        Title: <br>
-        <input type = “text” style = "width: 400px" name = “IncidentTitle”><br>
-
-        <!--Status options for the incidents-->
-        Status:
-        <select name="Status">
-                <option value="" disabled selected>Select One</option>
-                <option value = "open">Open</option>
-                <option value = "closed">Closed</option>
-                <option value = "stalled">Stalled</option>
-        </select>
+    <form>Title:
+        <br>
+        <input type=“ text” style="width: 400px" name=“ IncidentTitle”>
         <br>
 
+        <!--Status options for the incidents-->
+        <div class="Section">Status:
+            <select name="Status">
+                <option value="" disabled selected>Select One</option>
+                <option value="open">Open</option>
+                <option value="closed">Closed</option>
+                <option value="stalled">Stalled</option>
+            </select>
+            <br>
+        </div>
+
+        <!--Script to dynamically add more contacts-->
+        <script type="text/javascript">
+            function add_fields() {
+                document.getElementById('wrapper').innerHTML += ' <span>Last Name: <input type="text" name="Lastname"></span><br><span>First Name: <input type="text" name="FirstName"></span><br><span>Email Address: <input type="text" name="Email"><br></span><span>Job: <input type="text" name="Job"></span><br><br>\r\n';
+            }
+        </script>
+
         <!--Contact information of user-->
-        <br>Contact Information <br>
+        <br>Contact Information
+        <br>
 
-        Last Name: <br>
-        <input type = "text" name = "LastName"><br>
-        First Name: <br>
-        <input type = "text" name = "FirstName"><br>
-        Email Address: <br>
-        <input type = "text" name = "Email"><br>
-        Job: <br>
-        <input type = "text" name = "Job"><br>
-
-        <!--Information of the Indicent-->
-        <br>Issue Information<br>
+        <!--(Optional)If more contacts are going to be added, this will generate
+        more contact fields-->
+        <div id="AddContacts">
+            <div class="Section" id="wrapper">
+                	<span>Lname: <input type="text" name="LastName"></span>
+                <br>
+                	<span>Fname: <input type="text" name="FirsName"></span>
+                <br>
+                	<span>Email Address: <input type="text" name="Email"></span>
+                <br>
+                	<span>Job: <input type="text" name="Job"></span>
+                <br>
+                <br>
+            </div>
+        </div>
+        <input type="button" id="more_fields" onclick="add_fields();" value="Add Contact" />
+        <br>
 
         <!--Scrip to allow, If Other, then specify-->
         <script type="text/javascript">
-        function showfield(name){
-                if(name=='Other')document.getElementById('div1').style.display="block";
-                else document.getElementById('div1').style.display="none";
-        }
+            function showfield(name) {
+                if (name == 'Other') document.getElementById('IfOther').style.display = "block";
+                else document.getElementById('IfOther').style.display = "none";
+            }
 
-        function hidefield() {
-                document.getElementById('div1').style.display='none';
-        }
+            function hidefield() {
+                document.getElementById('IfOther').style.display = 'none';
+            }
         </script>
 
         <body onload="hidefield()">
 
-        Category: <br>
-        <select name = "Category" onchange="showfield(this.options[this.selectedIndex].value)">
-                <option value="" disabled selected>Select One</option>
-                <option value="phishing">Phishing</option>
-                <option value="dos">Denial of Service</option>
-                <option value="virus">Worm or Virus</option>
-                <option value="intrusion">Intrusion</option>
-                <option value="Other">Other</option>
-        </select>
+            <!--Information of the Indicent-->
+            <br>Issue Information
+            <br>
+            <div class="Section">Category:
+                <br>
+                <select name="Category" onchange="showfield(this.options[this.selectedIndex].value)">
+                    <option value="" disabled selected>Select One</option>
+                    <option value="phishing">Phishing</option>
+                    <option value="dos">Denial of Service</option>
+                    <option value="virus">Worm or Virus</option>
+                    <option value="intrusion">Intrusion</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
 
-        <!--Script reacts here: if other -> specify-->
-        <div id="div1">If Other: <input type="text" name="whatever" /></div>
+            <!--Script reacts here: if other -> specify-->
+            <div id="IfOther">If Other:
+                <input type="text" name="Specify" />
+            </div>
+            <br>
 
-        IP Address: <br>
-        <input type = "text" name = "IP"><br>
+            <!--Description of the Incident-->
+            <div class="Section">
+                <br>Description:
+                <br>
+                <textarea name="textarea" style="width:550px;height:150px;"></textarea>
+            </div>
 
-        <!--Description of the Incident-->
-        <br>Description: <br>
-        <textarea name="textarea" style="width:550px;height:150px;"></textarea>
+    </form>
 
-        </form>
 </html>
-

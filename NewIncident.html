@@ -1,99 +1,153 @@
 <!DOCTYPE html>
-<html>
-    <link rel="stylesheet" href="NewIndicent.css" type="text/css">
+<html lang="en">
+  <head>
+      <title>New Incident</title>
+    <link rel="stylesheet" type="text/css" href="NewIncident.css"/>
 
-    <title>New Incident</title>
 
-    <h1>New Incident</h1>
-    
-    <form>Title:
+  </head>
+
+  <h1>New Incident</h1>
+  <form>
+    <span class="SectionTitle" required>&nbsp;Title</span>
+    <div class="Section">
+      <br>
+      <input type = "text" style = "width: 97%" name = "IncidentTitle" placeholder="... short and simple" required>
+      <br><br>
+    </div>
+
+      <!--Status options for the incidents-->
+      <span class="SectionTitle">&nbsp;Status</span>
+      <div class="Section" required>
         <br>
-        <input type = "text" style = "width: 400px" name = "IncidentTitle" placeholder="... short and simple" required>
-        <br>
+          <select name="Status">
+              <option value="" disabled selected>Select One</option>
+              <option value="open">Open</option>
+              <option value="closed">Closed</option>
+              <option value="stalled">Stalled</option>
+          </select>
+          <br>
+      </div>
 
-        <!--Status options for the incidents-->
-        <div class="Section" required>Status:
-            <select name="Status">
-                <option value="" disabled selected>Select One</option>
-                <option value="open">Open</option>
-                <option value="closed">Closed</option>
-                <option value="stalled">Stalled</option>
-            </select>
+      <!--Script to dynamically add more contacts-->
+      <script type="text/javascript">
+        function add_fields() {
+          var objTo = document.getElementById('room_fileds')
+          var divtest = document.createElement("div");
+
+          /**divtest.innerHTML = '<div class="label"><br><br>New contact:</div><br><div class="row"><div class="col"><span>Last name: <input type="text" size=70% id="LastName"/><br></div><div class="col"><span>First name: <input type="text" size=70% id="FirstName"/></div><br>\r\n';*/
+          divtest.innerHTML = '<div class="label"><br><br>New contact:</div><br><div class="row"><div class="col"><span>Last name <input type="text" size=70% name="LastName"/></span></div><div class="col"><span>First name <input type="text" size=68% name="FirstName"></span></div></div><div class="row"><br><div class="col"><span>Email Address <input type="text" size=64% name="Email"></span></div><div class="col"><span>Job Title <input type="text" size=69% name="Job"></span></div></div></div>\r\n';
+
+          objTo.appendChild(divtest);
+        }
+      </script>
+
+      <!--===============================================================================================-->
+      <!--Contact information of user-->
+      <span class="SectionTitle">&nbsp;Contact Information</span>
+
+      <!--(Optional)If more contacts are going to be added, this will generate
+      more contact fields-->
+      <!--<div id="AddContacts">-->
+      <!--  <div class="row" id="wrapper">
             <br>
-        </div>
-
-        <!--Script to dynamically add more contacts-->
-        <script type="text/javascript">
-            function add_fields() {
-                document.getElementById('wrapper').innerHTML += ' <span>Last Name: <input type="text" name="Lastname"></span><br><span>First Name: <input type="text" name="FirstName"></span><br><span>Email Address: <input type="text" name="Email"><br></span><span>Job: <input type="text" name="Job"></span><br><br>\r\n';
-            }
-        </script>
-
-        <!--Contact information of user-->
-        <br>Contact Information
-        <br>
-
-        <!--(Optional)If more contacts are going to be added, this will generate
-        more contact fields-->
-        <div id="AddContacts">
-            <div class="Section" id="wrapper">
-                	<span>Last Name: <input type="text" data-validate="Please Type Your Last Name" name="LastName" required></span>
-                <br>
-                	<span>First Name: <input type="text" data-validate="Please Type Your First Name" name="FirsName" required></span>
-                <br>
-                	<span>Email Address: <input type="text" data-validate="Please Type Your Email Address" name="Email" required></span>
-                <br>
-                	<span>Job: <input type="text" data-validate="Please Type Your Job Title" name="Job" required></span>
-                <br>
-                <br>
+            <div class="col">
+                <label for="LastName">Last Name</label>
+                <input type="text" size=70% id="LastName"/>
+            </div>
+            <div class="col">
+                <label for="FirstName">First Name</label>
+                <input type="text" size=68% id="FirstName"/>
             </div>
         </div>
+
+        <div class="row">
+            <br>
+            <div class="col">
+                <label for="Email">Email Address</label>
+                <input type="text" size=64% id="Email"/>
+            </div>
+            <div class="col">
+                <label for="Job">Job Title</label>
+                <input type="text" size=69% id="Job"/>
+            </div>
+        </div>
+      </div>
+        ===============================================================================================-->
+
+      <div id="room_fileds">
+          <div class="row">
+            <br>
+            <div class="col">
+              <span>Last name <input type="text" size=70% name="LastName"></span>
+            </div>
+            <div class="col">
+              <span>First Name <input type="text" size=68% name="FirstName"></span>
+            </div>
+          </div>
+
+          <div class="row">
+              <br>
+              <div class="col">
+                <span>Email Address <input type="text" size=64% name="Email"></span>
+              </div>
+              <div class="col">
+                <span>Job Title <input type="text" size=69% name="Job"></span>
+              </div>
+          </div>
+      </div>
+
+      <div class="AddContacts">
         <input type="button" id="more_fields" onclick="add_fields();" value="Add Contact" />
         <br>
+      </div>
 
-        <!--Scrip to allow, If Other, then specify-->
-        <script type="text/javascript">
-            function showfield(name) {
-                if (name == 'Other') document.getElementById('IfOther').style.display = "block";
-                else document.getElementById('IfOther').style.display = "none";
-            }
+      <!--Scrip to allow, If Other, then specify-->
+      <script type="text/javascript">
+          function showfield(name) {
+              if (name == 'Other') document.getElementById('IfOther').style.display = "block";
+              else document.getElementById('IfOther').style.display = "none";
+          }
 
-            function hidefield() {
-                document.getElementById('IfOther').style.display = 'none';
-            }
-        </script>
+          function hidefield() {
+              document.getElementById('IfOther').style.display = 'none';
+          }
+      </script>
+      <br>
 
-        <body onload="hidefield()">
+      <body onload="hidefield()">
 
-            <!--Information of the Indicent-->
-            <br>Issue Information
-            <br>
-            <div class="Section">Category:
-                <br>
-                <select name="Category" onchange="showfield(this.options[this.selectedIndex].value)" required>
-                    <option value="" disabled selected>Select One</option>
-                    <option value="phishing">Phishing</option>
-                    <option value="dos">Denial of Service</option>
-                    <option value="virus">Worm or Virus</option>
-                    <option value="intrusion">Intrusion</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
+      <!--Information of the Indicent-->
+      <span class="SectionTitle">&nbsp;Incident Category</span>
+      <div class="Section">
+        <br>
+        <select name="Category" onchange="showfield(this.options[this.selectedIndex].value)" required>
+            <option value="" disabled selected>Select One</option>
+            <option value="phishing">Phishing</option>
+            <option value="dos">Denial of Service</option>
+            <option value="virus">Worm or Virus</option>
+            <option value="intrusion">Intrusion</option>
+            <option value="Other">Other</option>
+        </select>
+      </div>
 
-            <!--Script reacts here: if other -> specify-->
-            <div id="IfOther">If Other:
-                <input type="text" name="Specify" required/>
-            </div>
-            <br>
+      <!--Script reacts here: if other -> specify-->
+      <div id="IfOther">If Other:
+          <input type="text" name="Specify" required/>
+      </div>
+      <br><br>
 
-            <!--Description of the Incident-->
-            <div class="Section">
-                <br>Description: <br>
-                <textarea name="textarea" style="width:550px;height:150px;" placeholder="Tell us about the incident..." required></textarea>
-            </div>
+      <!--Description of the Incident-->
+      <span class="SectionTitle">&nbsp;Description:</span>
+      <div class="Section">
+        <br>
+        <textarea name="textarea" style = "width: 97%; height:150px;" placeholder="Tell us about the incident..." required></textarea>
+      </div>
 
-            <!--Submit Button-->
-            <br><br><input type="submit" value="Submit">
+      <!--Submit Button-->
+      <div class="SubmitTicket">
+        <br><input type="submit" value="Submit">
+      </div>
 
     </form>
 

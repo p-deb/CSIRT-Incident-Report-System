@@ -1,13 +1,18 @@
+<!DOCTYPE html>
 <html>
+    <link rel="stylesheet" href="NewIndicent.css" type="text/css">
+
     <title>New Incident</title>
 
+    <h1>New Incident</h1>
+    
     <form>Title:
         <br>
-        <input type=“ text” style="width: 400px" name=“ IncidentTitle”>
+        <input type = "text" style = "width: 400px" name = "IncidentTitle" placeholder="... short and simple" required>
         <br>
 
         <!--Status options for the incidents-->
-        <div class="Section">Status:
+        <div class="Section" required>Status:
             <select name="Status">
                 <option value="" disabled selected>Select One</option>
                 <option value="open">Open</option>
@@ -32,13 +37,13 @@
         more contact fields-->
         <div id="AddContacts">
             <div class="Section" id="wrapper">
-                	<span>Lname: <input type="text" name="LastName"></span>
+                	<span>Last Name: <input type="text" data-validate="Please Type Your Last Name" name="LastName" required></span>
                 <br>
-                	<span>Fname: <input type="text" name="FirsName"></span>
+                	<span>First Name: <input type="text" data-validate="Please Type Your First Name" name="FirsName" required></span>
                 <br>
-                	<span>Email Address: <input type="text" name="Email"></span>
+                	<span>Email Address: <input type="text" data-validate="Please Type Your Email Address" name="Email" required></span>
                 <br>
-                	<span>Job: <input type="text" name="Job"></span>
+                	<span>Job: <input type="text" data-validate="Please Type Your Job Title" name="Job" required></span>
                 <br>
                 <br>
             </div>
@@ -65,7 +70,7 @@
             <br>
             <div class="Section">Category:
                 <br>
-                <select name="Category" onchange="showfield(this.options[this.selectedIndex].value)">
+                <select name="Category" onchange="showfield(this.options[this.selectedIndex].value)" required>
                     <option value="" disabled selected>Select One</option>
                     <option value="phishing">Phishing</option>
                     <option value="dos">Denial of Service</option>
@@ -77,16 +82,18 @@
 
             <!--Script reacts here: if other -> specify-->
             <div id="IfOther">If Other:
-                <input type="text" name="Specify" />
+                <input type="text" name="Specify" required/>
             </div>
             <br>
 
             <!--Description of the Incident-->
             <div class="Section">
-                <br>Description:
-                <br>
-                <textarea name="textarea" style="width:550px;height:150px;"></textarea>
+                <br>Description: <br>
+                <textarea name="textarea" style="width:550px;height:150px;" placeholder="Tell us about the incident..." required></textarea>
             </div>
+
+            <!--Submit Button-->
+            <br><br><input type="submit" value="Submit">
 
     </form>
 

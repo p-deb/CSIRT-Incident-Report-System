@@ -45,8 +45,50 @@
       <br>
 
       <!--===============================================================================================-->
+
+      <!--Scrip to allow, for contacts to be putten in when contact is chosen, then specify-->
+      <script type="text/javascript">
+          function showfield(name) {
+              if (name == 'IPAddress') {
+                /*document.getElementById('IfIP').style.display = "block";*/
+                document.getElementById('IfIP').innerHTML = 'Specify IP address: <input type="text" name="Specify" required/>';
+              }
+              else {
+                document.getElementById('IfIP').innerHTML='';
+              }
+          }
+
+          function hidefield() {
+              document.getElementById('IfIP').style.display = 'none';
+          }
+      </script>
+      <br>
+
+      <body onload="hidefield()">
+
       <!--Contact information of user-->
-      <span class="SectionTitle">&nbsp;Contact Information</span>
+      <span class="SectionTitle">&nbsp;Participant Information</span>
+        <div class="Section">
+          <br>
+          <select name="ParticipantType" onchange="showfield(this.options[this.selectedIndex].value)" required>
+            <option value="" disabled selected>Select One</option>
+            <option value="Contact">Contact</option>
+            <option value="IPAddress">IP address</option>
+          </select>
+
+          <!--Script reacts here: if other -> specify-->
+          <div id="IfIP"></div>
+        </div>
+
+
+
+      <br><br>
+
+      <!--===============================================================================================-->
+
+        <br>-----------------------------------------------<br>
+
+        <br><br><br><br><br>
 
       <!--(Optional)If more contacts are going to be added, this will generate
       more contact fields-->
@@ -123,7 +165,7 @@
 
       <!--Submit Button-->
       <div class="SubmitTicket">
-        <br><input type="submit" value="Submit">
+        <br><input type="submit" value="Submit" >
       </div>
 
     </form>

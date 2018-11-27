@@ -36,11 +36,12 @@
           var divtest = document.createElement("div");
 
           /**divtest.innerHTML = '<div class="label"><br><br>New contact:</div><br><div class="row"><div class="col"><span>Last name: <input type="text" size=70% id="LastName"/><br></div><div class="col"><span>First name: <input type="text" size=70% id="FirstName"/></div><br>\r\n';*/
-          divtest.innerHTML = '<div class="label"><br><br>New contact:</div><br><div class="row"><div class="col"><span>Last name <input type="text" size=70% name="LastName"/></span></div><div class="col"><span>First name <input type="text" size=68% name="FirstName"></span></div></div><div class="row"><br><div class="col"><span>Email Address <input type="text" size=64% name="Email"></span></div><div class="col"><span>Job Title <input type="text" size=69% name="Job"></span></div></div></div>\r\n';
+          divtest.innerHTML = '<div class="label"><br><br><hr/><center>New contact:<center/></div><hr/><div class="row"><div class="col"><span>Last name <input type="text" size=70% name="LastName"/></span></div><div class="col"><span>First name <input type="text" size=68% name="FirstName"></span></div></div><div class="row"><br><div class="col"><span>Email Address <input type="text" size=64% name="Email"></span></div><div class="col"><span>Job Title <input type="text" size=69% name="Job"></span></div></div></div>\r\n';
 
           objTo.appendChild(divtest);
         }
       </script>
+      <br>
 
       <!--===============================================================================================-->
       <!--Contact information of user-->
@@ -48,32 +49,6 @@
 
       <!--(Optional)If more contacts are going to be added, this will generate
       more contact fields-->
-      <!--<div id="AddContacts">-->
-      <!--  <div class="row" id="wrapper">
-            <br>
-            <div class="col">
-                <label for="LastName">Last Name</label>
-                <input type="text" size=70% id="LastName"/>
-            </div>
-            <div class="col">
-                <label for="FirstName">First Name</label>
-                <input type="text" size=68% id="FirstName"/>
-            </div>
-        </div>
-
-        <div class="row">
-            <br>
-            <div class="col">
-                <label for="Email">Email Address</label>
-                <input type="text" size=64% id="Email"/>
-            </div>
-            <div class="col">
-                <label for="Job">Job Title</label>
-                <input type="text" size=69% id="Job"/>
-            </div>
-        </div>
-      </div>
-        ===============================================================================================-->
 
       <div id="room_fileds">
           <div class="row">
@@ -98,6 +73,7 @@
       </div>
 
       <div class="AddContacts">
+        <br>
         <input type="button" id="more_fields" onclick="add_fields();" value="Add Contact" />
         <br>
       </div>

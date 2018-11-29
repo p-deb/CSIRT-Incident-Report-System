@@ -32,64 +32,38 @@
 
       <!--Script to dynamically add more contacts-->
       <script type="text/javascript">
-        function add_fields() {
-          var objTo = document.getElementById('room_fileds')
+        function more_contacts() {
+          var objTo = document.getElementById('room_fields')
           var divtest = document.createElement("div");
 
-          /**divtest.innerHTML = '<div class="label"><br><br>New contact:</div><br><div class="row"><div class="col"><span>Last name: <input type="text" size=70% id="LastName"/><br></div><div class="col"><span>First name: <input type="text" size=70% id="FirstName"/></div><br>\r\n';*/
-          divtest.innerHTML = '<div class="label"><br><br><hr/><center>New contact:<center/></div><hr/><div class="row"><div class="col"><span>Last name <input type="text" size=70% name="LastName"/></span></div><div class="col"><span>First name <input type="text" size=68% name="FirstName"></span></div></div><div class="row"><br><div class="col"><span>Email Address <input type="text" size=64% name="Email"></span></div><div class="col"><span>Job Title <input type="text" size=69% name="Job"></span></div></div></div>\r\n';
+          divtest.innerHTML = '<div class="label"><br><br><hr/><center>Additional contact:<center/></div><hr/><div class="row"><div class="col"><span>Last name <input type="text" size=70% name="LastName"/></span></div><div class="col"><span>First name <input type="text" size=68% name="FirstName"></span></div></div><div class="row"><br><div class="col"><span>Email Address <input type="text" size=64% name="Email"></span></div><div class="col"><span>Job Title <input type="text" size=69% name="Job"></span></div></div></div>\r\n';
 
           objTo.appendChild(divtest);
         }
       </script>
       <br>
 
+      <!--Script to dynamically add more ip addresses fields-->
+      <script type="text/javascript">
+        function add_ip() {
+          var objTo = document.getElementById('room_fields')
+          var divtest = document.createElement("div");
+
+          divtest.innerHTML = '<div class="label"><br><br><hr/><center>Additional IP Address: <center/></div><hr/><span>IP Address: </span><input type="text" size=50% name="IP"/></div>\r\n';
+          objTo.appendChild(divtest);
+        }
+      </script>
+
+
       <!--===============================================================================================-->
-
-
 
       <!--Contact information of user-->
       <span class="SectionTitle">&nbsp;Participant Information</span>
-        <div class="Section">
-
-          <!--Script to dynamically add IP Address-->
-          <script type="text/javascript">
-            function add_ip() {
-              var objTo = document.getElementById('ip')
-              var divtest = document.createElement("div");
-
-              divtest.innerHTML = '<div class="label"><br><input type="text" name="Specify"/><br></div>\r\n';
-
-              objTo.appendChild(divtest);
-            }
-          </script>
-          <br>
-
-          <div class="AddIP">
-            <br>
-            <input type="button" id="ip" onclick="add_ip();" value="Add IP Address" />
-            <br>
-          </div>
-
-
-          <div id="ip">IP Address:
-              <input type="text" name="Specify" required/>
-          </div>
-
-
-
-      <br><br>
-
-      <!--===============================================================================================-->
-
-        <br>-----------------------------------------------<br>
-
-        <br><br><br><br><br>
 
       <!--(Optional)If more contacts are going to be added, this will generate
       more contact fields-->
 
-      <div id="room_fileds">
+      <div id="room_fields">
           <div class="row">
             <br>
             <div class="col">
@@ -109,13 +83,27 @@
                 <span>Job Title <input type="text" size=69% name="Job"></span>
               </div>
           </div>
+          <br><br>
+          <span><center>or</center></span>
+
+          <div id="ip">
+            <span>IP Address: <input type = "text" size=50% name="ip"></span>
+          </div>
       </div>
 
-      <div class="AddContacts">
-        <br>
-        <input type="button" id="more_fields" onclick="add_fields();" value="Add Contact" />
-        <br>
+      <div class="AddMoreFields">
+        <div class="AddIP" style="width:50%;display:inline;">
+          <br>
+          <input type="button" id="more_fields" onclick="add_ip();" value="Add IP Address" />
+        </div>
+
+
+        <div class="AddContacts" style="width:50%;display:inline;">
+          <input type="button" id="more_fields" onclick="more_contacts();" value="Add Contact" />
+          <br>
+        </div>
       </div>
+      <!--===============================================================================================-->
 
       <!--Scrip to allow, If Other, then specify-->
       <script type="text/javascript">
@@ -148,7 +136,7 @@
 
       <!--Script reacts here: if other -> specify-->
       <div id="IfOther">If Other:
-          <input type="text" name="Specify" required/>
+          <input type="text" name="Specify"/>
       </div>
       <br><br>
 
@@ -165,5 +153,5 @@
       </div>
 
     </form>
-
+    <br><br><br><br>
 </html>

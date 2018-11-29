@@ -36,7 +36,7 @@
           var objTo = document.getElementById('room_fields')
           var divtest = document.createElement("div");
 
-          divtest.innerHTML = '<div class="label"><br><br><hr/><center>Additional contact:<center/></div><hr/><div class="row"><div class="col"><span>Last name <input type="text" size=70% name="LastName"/></span></div><div class="col"><span>First name <input type="text" size=68% name="FirstName"></span></div></div><div class="row"><br><div class="col"><span>Email Address <input type="text" size=64% name="Email"></span></div><div class="col"><span>Job Title <input type="text" size=69% name="Job"></span></div></div></div>\r\n';
+          divtest.innerHTML = '<div class="label"><br><br><hr/><center>Additional contact:<center/></div><hr/><div class="row"><div class="col"><span>Last name <input type="text" size=70% name="LastName"/></span></div><div class="col"><span>First name <input type="text" size=68% name="FirstName"></span></div></div><div class="row"><br><div class="col"><span>Email Address <input type="text" size=64% name="Email"></span></div><div class="col"><span>Job Title <input type="text" size=69% name="Job"></span></div></div><br><div class="row"><div class="col"><span><span>Relation to Incident <input type="text" size=54% name="relation"></span></div>\r\n';
 
           objTo.appendChild(divtest);
         }
@@ -83,6 +83,13 @@
                 <span>Job Title <input type="text" size=69% name="Job"></span>
               </div>
           </div>
+          <div class="row">
+            <br>
+            <div class="col">
+              <span>Relation to Incident <input type="text" size=52% name="relation"></span>
+            </div>
+          </div>
+
           <br><br>
           <span><center>or</center></span>
 
@@ -92,15 +99,14 @@
       </div>
 
       <div class="AddMoreFields">
-        <div class="AddIP" style="width:50%;display:inline;">
-          <br>
-          <input type="button" id="more_fields" onclick="add_ip();" value="Add IP Address" />
-        </div>
-
-
         <div class="AddContacts" style="width:50%;display:inline;">
-          <input type="button" id="more_fields" onclick="more_contacts();" value="Add Contact" />
           <br>
+          <input type="button" id="more_fields" onclick="more_contacts();" value="Add Contact" />
+        </div>
+        
+        <div class="AddIP" style="width:50%;display:inline;">
+
+          <input type="button" id="more_fields" onclick="add_ip();" value="Add IP Address" />
         </div>
       </div>
       <!--===============================================================================================-->

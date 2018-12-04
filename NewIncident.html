@@ -7,8 +7,13 @@
 
   </head>
 
+<<<<<<< HEAD
   <h1>NEW INCIDENT REPORT </h1>
   <form>
+=======
+  <h1>NEW INCIDENT REPORT</h1>
+  <form action = "NewIncident.php" method = "POST">
+>>>>>>> 20a2a7c9b65ebab9efac680e2e391ca7f83b59c9
     <span class="SectionTitle" required>&nbsp;Title</span>
     <div class="Section">
       <br>
@@ -22,9 +27,9 @@
         <br>
           <select name="Status">
               <option value="" disabled selected>Select One</option>
-              <option value="open">Open</option>
-              <option value="closed">Closed</option>
-              <option value="stalled">Stalled</option>
+              <option value="Open">Open</option>
+              <option value="Closed">Closed</option>
+              <option value="Stalled">Stalled</option>
           </select>
           <br>
       </div>
@@ -132,10 +137,10 @@
         <br>
         <select name="Category" onchange="showfield(this.options[this.selectedIndex].value)" required>
             <option value="" disabled selected>Select One</option>
-            <option value="phishing">Phishing</option>
-            <option value="dos">Denial of Service</option>
-            <option value="virus">Worm or Virus</option>
-            <option value="intrusion">Intrusion</option>
+            <option value="Phishing">Phishing</option>
+            <option value="DOS">Denial of Service</option>
+            <option value="Virus">Worm or Virus</option>
+            <option value="Intrusion">Intrusion</option>
             <option value="Other">Other</option>
         </select>
       </div>

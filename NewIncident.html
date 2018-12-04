@@ -46,7 +46,7 @@
         function add_ip() {
           var objTo = document.getElementById('room_fields')
           var divtest = document.createElement("div");
-          divtest.innerHTML = '<div class="label"><br><br><hr/><center>Additional IP Address: <center/></div><hr/><span>IP Address: </span><input type="text" size=50% name="IP"/></div>\r\n';
+          divtest.innerHTML = '<div class="label"><br><br><hr/><center>Additional IP Address: <center/></div><hr/><span>IP Address: </span><input type="text" size=66% name="IP"/><span> Relation to Incident <input type="text" size=57% name="relation"></span></div>\r\n';
           objTo.appendChild(divtest);
         }
       </script>
@@ -83,15 +83,17 @@
           <div class="row">
             <br>
             <div class="col">
-              <span>Relation to Incident <input type="text" size=52% name="Relation"></span>
+              <span>Relation to Incident <input type="text" size=54% name="Relation"></span>
             </div>
           </div>
 
           <br><br>
-          <span><center>or</center></span>
+          <span><center> or </center></span>
+          <br>
 
           <div id="ip">
-            <span>IP Address: <input type = "text" size=50% name="ip"></span>
+            <span>IP Address: <input type = "text" size=66% name="ip"></span>
+            <span>Relation to Incident <input type="text" size=57% name="Relation"></span>
           </div>
       </div>
 

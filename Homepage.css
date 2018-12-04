@@ -23,17 +23,19 @@ ul {
 }
 
 table.IncidentsTable {
-  display: block;
+  display: inline-block;
 	color: black;
+  border: 2px;
 	background-color: #45CEA2;
 }
 
 td {
   overflow: hidden;
+  vertical-align: center;
   display: inline-block;
-  padding: 5;
   width: 200px;
-  border: 1px solid white;
+  height: 35px;
+  border: 1px solid black;
 }
 
 #number {

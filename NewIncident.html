@@ -7,13 +7,8 @@
 
   </head>
 
-<<<<<<< HEAD
-  <h1>NEW INCIDENT REPORT </h1>
-  <form>
-=======
   <h1>NEW INCIDENT REPORT</h1>
   <form action = "NewIncident.php" method = "POST">
->>>>>>> 20a2a7c9b65ebab9efac680e2e391ca7f83b59c9
     <span class="SectionTitle" required>&nbsp;Title</span>
     <div class="Section">
       <br>
@@ -40,9 +35,7 @@
         function more_contacts() {
           var objTo = document.getElementById('room_fields')
           var divtest = document.createElement("div");
-
           divtest.innerHTML = '<div class="label"><br><br><hr/><center>Additional contact:<center/></div><hr/><div class="row"><div class="col"><span>Last name <input type="text" size=70% name="LastName"/></span></div><div class="col"><span>First name <input type="text" size=68% name="FirstName"></span></div></div><div class="row"><br><div class="col"><span>Email Address <input type="text" size=64% name="Email"></span></div><div class="col"><span>Job Title <input type="text" size=69% name="Job"></span></div></div><br><div class="row"><div class="col"><span><span>Relation to Incident <input type="text" size=54% name="relation"></span></div>\r\n';
-
           objTo.appendChild(divtest);
         }
       </script>
@@ -53,7 +46,6 @@
         function add_ip() {
           var objTo = document.getElementById('room_fields')
           var divtest = document.createElement("div");
-
           divtest.innerHTML = '<div class="label"><br><br><hr/><center>Additional IP Address: <center/></div><hr/><span>IP Address: </span><input type="text" size=50% name="IP"/></div>\r\n';
           objTo.appendChild(divtest);
         }
@@ -91,7 +83,7 @@
           <div class="row">
             <br>
             <div class="col">
-              <span>Relation to Incident <input type="text" size=52% name="relation"></span>
+              <span>Relation to Incident <input type="text" size=52% name="Relation"></span>
             </div>
           </div>
 
@@ -122,7 +114,6 @@
               if (name == 'Other') document.getElementById('IfOther').style.display = "block";
               else document.getElementById('IfOther').style.display = "none";
           }
-
           function hidefield() {
               document.getElementById('IfOther').style.display = 'none';
           }

@@ -12,7 +12,6 @@ h1 {
 
 body {
   font-family: "Courier New";
-
 }
 
 ul {
@@ -21,6 +20,28 @@ ul {
 	padding: 0;
 	overflow: hidden;
 	background-color: #e6e6e6;
+}
+
+table.IncidentsTable {
+  display: block;
+	color: black;
+	background-color: #45CEA2;
+}
+
+td {
+  overflow: hidden;
+  display: inline-block;
+  padding: 5;
+  width: 200px;
+  border: 1px solid white;
+}
+
+#number {
+  width: 150px;
+}
+
+#title {
+  width: 490px;
 }
 
 li {

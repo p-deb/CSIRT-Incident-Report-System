@@ -1,4 +1,6 @@
 <?php
+        echo "<link rel='stylesheet' type='text/css' href='Query.css' />";
+
         $host = 'localhost';
         $user = 'proggadeb';
         $pw = '';
@@ -10,7 +12,7 @@
                 echo "Connect failed: ". $db->connect_error;
                 exit();
         }
-	
+
 	if (isset($_REQUEST['incidentNo']))
         {       $incidentNo = $_REQUEST['incidentNo'];  }
 
@@ -21,7 +23,7 @@
                 echo "Oops! " . $db->error;
         }
         else{
-                echo "<br>" . $result->num_rows. " ticket(s) displayed.";
+                echo "<br>" . $result->num_rows. " ticket(s) displayed.<br>";
 
 	//two methods
         $table = $result->fetch_all();
@@ -38,5 +40,5 @@
 }
 
         $db->close();
-	
+
 ?>

@@ -21,7 +21,7 @@
                 echo "Oops! " . $db->error;
         }
         else{
-                echo "<br>" . $result->num_rows. " tickets displayed.";
+                echo "<br>" . $result->num_rows. " ticket(s) displayed.";
 
 	//two methods
         $table = $result->fetch_all();

@@ -44,7 +44,7 @@
         $table = $result->fetch_all();
         //var_dump($table);
         echo "<table border = '1'>";
-        echo "<tr><th>Incident #</th><th>Incident Type</th><th>Date Created</th><th>Status</th><th>Title</th></tr>";
+	echo "<tr><th>Incident #</th><th>Incident Title</th><th>Incident Type</th><th>Status</th><th>Date Created</th></tr>";       
 	foreach($table as $row){
                 echo "<tr>";
                 foreach($row as $value){
@@ -81,26 +81,6 @@
 
 	$sqlP = "SELECT * FROM `participant`;";
         $resultParticipants = $db->query($sqlP);
-        if(!$result){
-                echo "Oops! " . $db->error;
-        }
-        else{
-                echo "<br>" . $result->num_rows. " tickets displayed.";
-
-        //two methods
-        $table = $result->fetch_all();
-        //var_dump($table);
-        echo "<table border = '1'>";
-        echo "<tr><th>Incident #</th><th>Incident Type</th><th>Date Created</th><th>Status</th><th>Title</th></tr>";
-        	foreach($table as $row){
-                	echo "<tr>";
-                	foreach($row as $value){
-                        	echo "<td>$value</td>";
-                	}
-                	echo "</tr>";
-        	}
-	}
-
 
         #DESCRIPTION
         if (isset($_REQUEST['textarea']))

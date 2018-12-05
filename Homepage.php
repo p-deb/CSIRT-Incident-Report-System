@@ -13,19 +13,10 @@
                 exit();
         }
 
-	if (isset($_REQUEST['incidentNo']))
-        {       $incidentNo = $_REQUEST['incidentNo'];  }
+$sql = "SELECT * FROM Incident ORDER BY dateCreated DESC";
+        $result = $db->query($sql);
 
-	$sql = "SELECT * FROM Incident WHERE incidentNo = $incidentNo";
-	$result = $db->query($sql);
-
-	if(!$result){
-                echo "Oops! " . $db->error;
-        }
-        else{
-                echo "<br>" . $result->num_rows. " ticket(s) displayed.<br>";
-
-	//two methods
+//two methods
         $table = $result->fetch_all();
         //var_dump($table);
         echo "<table border = '1'>";
@@ -37,8 +28,25 @@
                 }
                 echo "</tr>";
         }
-}
 
         $db->close();
 
+
 ?>
+<html lang="en">
+<head>
+ <title> CSIRT Homepage </title>
+ <link rel="stylesheet" type ="text/css" href="Homepage.css"/>
+ </head>
+<body>
+   <h1> CSIRT INCIDENT REPORT SYSTEM </h1>
+ <ul>
+     <li> <a class= "current" href= "#homepage"> Home </a> </li>
+     <li> <a href = "Query.html"> Search </a> </li>
+     <li> <a href = "NewIncident.html" target = "_blank"> Report an Incident </a> </li>
+ </ul>
+
+<br><br>
+
+</body>
+</html>

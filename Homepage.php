@@ -21,17 +21,32 @@
     <th id="headerItem"><center>Status</center></th>
     <th id="headerItem"><center>Date Created</center></th>
   </tr>
-  <tr class="TableRow">
-  </tr>
+
+<?php
+        include ("connection.php");     //connects to db
+
+        $sql = "SELECT * FROM Incident ORDER BY dateCreated DESC";
+        $result = mysqli_query($db,$sql);
+        //$num = mysqli_query
+
+        $table = $result->fetch_all();
+        {
+                foreach($table as $row) {
+                ?>
+                <tr class = "TableRow">
+                <?php
+
+                foreach($row as $value)
+                {
+                        echo "<td>$value</td>";
+                }
+                }
+                ?>
+                </tr>
+<?php
+        }
+?>
 </table>
 
 </body>
 </html>
-
-<?php
-	include ("connection.php");	//connects to db
-	
-	$sql = "SELECT * FROM Incident ORDER BY dateCreated DESC";
-        $result = $db->query($sql);
-	
-?>

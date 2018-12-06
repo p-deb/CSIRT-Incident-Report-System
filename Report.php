@@ -10,13 +10,12 @@
 
 	if(!$result){
     echo "Oops! " . $db->error;
-        }
-        else{
+  }
+  else{
 
-        $table = $result->fetch_all();
+    $table = $result->fetch_all();
+    $title = "Incident Tile Test";
 
-        $incidentNo = $table->$incidentNo;
-        $title = $table->$incidentNo;
-
-      }
+    echo $title;
+  }
 ?>

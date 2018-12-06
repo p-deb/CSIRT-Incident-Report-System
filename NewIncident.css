@@ -57,6 +57,11 @@ textarea:focus {
     margin: 4px 2px;
 }
 
+#more_fields:hover:not(.current) {
+	background-color: black;
+  color: white;
+}
+
 .row {
   border: 1px;
   overflow: hidden;

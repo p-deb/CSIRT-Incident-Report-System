@@ -1,27 +1,29 @@
 <?php 
-include("connection.php");// Conects to db
+     include("connection.php");// Connects to db
 
-#TITLE---- Will date created be auto-generated or manually entered? ----
-if (isset($_REQUEST['IncidentTitle']))
-{$IncidentTitle = $_REQUEST['IncidentTitle'];}
-if (isset($_REQUEST['Category']))
-{$Category = $_REQUEST['Category'];}
-if (isset($_REQUEST['Status']))
-{$Status = $_REQUEST['Status'];}
+     # Inserts Incident title, category, and status into incident table
+     # Incident No is also incremented by 1
+     if (isset($_REQUEST['IncidentTitle']))
+          {$IncidentTitle = $_REQUEST['IncidentTitle'];}    
+     if (isset($_REQUEST['Category']))
+          {$Category = $_REQUEST['Category'];}
+     if (isset($_REQUEST['Status']))
+          {$Status = $_REQUEST['Status'];}
 
-if (isset($_REQUEST['IncidentTitle']))
-{
-$sqlTitle = "INSERT INTO `Incident` (incidentNo, incidentType, dateCreated, incidentStatus, incidentTitle ) 
-     VALUES (DEFAULT, '$Category', current_timestamp(), '$Status', '$IncidentTitle');";
-if ($db->query($sqlTitle) === TRUE)
-{
-echo "New Incident entered into database";
-}
-else
-{
-echo "Error: " . $sql . "<br>" . $db->error;
-}
-}
+     if (isset($_REQUEST['IncidentTitle']))
+     {
+          $sqlTitle = "INSERT INTO `Incident` (incidentNo, incidentType, dateCreated, incidentStatus, incidentTitle ) VALUES (DEFAULT, '$Category', current_timestamp(), '$Status', '$IncidentTitle');";
+          
+          if ($db->query($sqlTitle) === TRUE)
+          {
+               echo "New Incident entered into database";
+          }    // end if
+          else
+          {
+               echo "Error: " . $sql . "<br>" . $db->error;
+          }    // end else
+     }    //end if
+
 /*$sql = "SELECT * FROM `incident`;";
         $result = $db->query($sql);
         if(!$result){
@@ -44,7 +46,9 @@ foreach($table as $row){
         }
 }
 */
-        #CONTACT INFO   ----- Need to add reasonForIncident to form -----
+
+
+        #CONTACT INFO   
         if (isset($_REQUEST['LastName']))
         {       $LastName = $_REQUEST['LastName'];      }
         if (isset($_REQUEST['FirstName']))
@@ -53,13 +57,13 @@ foreach($table as $row){
         {       $Email = $_REQUEST['Email'];    }
         if (isset($_REQUEST['Job']))
         {       $Job = $_REQUEST['Job'];        }
-if (isset ($_REQUEST['Relation']))
-{$Relation = $_REQUEST['Relation'];}
+        if (isset ($_REQUEST['Relation']))
+        {       $Relation = $_REQUEST['Relation'];     }
 
         if (isset($_REQUEST['LastName']))
         {
-        $sqlContact = "INSERT INTO `Participant` (lastName, firstName, jobTitle, email, reasonForIncident) VALUES ('$LastName', '$FirstName', '$Job', '$Email', '$Relation');";
-/*if ($db->query($sqlContact) === TRUE)
+               $sqlContact = "INSERT INTO `Participant` (lastName, firstName, jobTitle, email, reasonForIncident) VALUES ('$LastName', '$FirstName', '$Job', '$Email', '$Relation');";
+               /*if ($db->query($sqlContact) === TRUE)
                 {
                         echo "New Incident entered into database";
                 }
@@ -67,8 +71,8 @@ if (isset ($_REQUEST['Relation']))
                 {
                         echo "Error: " . $sqlContact . "<br>" . $db->error;
                 }
-*/
-        }
+                */
+        } //end if
 
 
 

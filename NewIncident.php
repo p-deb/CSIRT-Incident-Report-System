@@ -1,38 +1,28 @@
 <?php 
-	$host = 'localhost';
-	$user = 'proggadeb';
-	$pw = '';
-	$database = 'proggadeb';
+include("connection.php");// Conects to db
 
-	$db = new mysqli($host, $user, $pw, $database);
-	if ($db->connect_errno)
-	{
-		echo "Connect failed: ". $db->connect_error;
-		exit();
-	}
+#TITLE---- Will date created be auto-generated or manually entered? ----
+if (isset($_REQUEST['IncidentTitle']))
+{$IncidentTitle = $_REQUEST['IncidentTitle'];}
+if (isset($_REQUEST['Category']))
+{$Category = $_REQUEST['Category'];}
+if (isset($_REQUEST['Status']))
+{$Status = $_REQUEST['Status'];}
 
-	#TITLE	---- Will date created be auto-generated or manually entered? ----
-	if (isset($_REQUEST['IncidentTitle']))
-	{	$IncidentTitle = $_REQUEST['IncidentTitle'];	}
-	if (isset($_REQUEST['Category']))
-	{	$Category = $_REQUEST['Category'];	}
-	if (isset($_REQUEST['Status']))
-	{	$Status = $_REQUEST['Status'];	}
-
-	if (isset($_REQUEST['IncidentTitle']))
-	{
-		$sqlTitle = "INSERT INTO `Incident` (incidentNo, incidentType, dateCreated, incidentStatus, incidentTitle ) 
-			     VALUES (DEFAULT, '$Category', current_timestamp(), '$Status', '$IncidentTitle');";
-		if ($db->query($sqlTitle) === TRUE)
-		{
-			echo "New Incident entered into database";
-		}
-		else
-		{
-			echo "Error: " . $sql . "<br>" . $db->error;
-		}
-	}
-	$sql = "SELECT * FROM `incident`;";
+if (isset($_REQUEST['IncidentTitle']))
+{
+$sqlTitle = "INSERT INTO `Incident` (incidentNo, incidentType, dateCreated, incidentStatus, incidentTitle ) 
+     VALUES (DEFAULT, '$Category', current_timestamp(), '$Status', '$IncidentTitle');";
+if ($db->query($sqlTitle) === TRUE)
+{
+echo "New Incident entered into database";
+}
+else
+{
+echo "Error: " . $sql . "<br>" . $db->error;
+}
+}
+/*$sql = "SELECT * FROM `incident`;";
         $result = $db->query($sql);
         if(!$result){
                 echo "Oops! " . $db->error;
@@ -44,8 +34,8 @@
         $table = $result->fetch_all();
         //var_dump($table);
         echo "<table border = '1'>";
-	echo "<tr><th>Incident #</th><th>Incident Title</th><th>Incident Type</th><th>Status</th><th>Date Created</th></tr>";       
-	foreach($table as $row){
+echo "<tr><th>Incident #</th><th>Incident Title</th><th>Incident Type</th><th>Status</th><th>Date Created</th></tr>";       
+foreach($table as $row){
                 echo "<tr>";
                 foreach($row as $value){
                         echo "<td>$value</td>";
@@ -53,8 +43,8 @@
                 echo "</tr>";
         }
 }
-
-	        #CONTACT INFO   ----- Need to add reasonForIncident to form -----
+*/
+        #CONTACT INFO   ----- Need to add reasonForIncident to form -----
         if (isset($_REQUEST['LastName']))
         {       $LastName = $_REQUEST['LastName'];      }
         if (isset($_REQUEST['FirstName']))
@@ -63,13 +53,13 @@
         {       $Email = $_REQUEST['Email'];    }
         if (isset($_REQUEST['Job']))
         {       $Job = $_REQUEST['Job'];        }
-	if (isset ($_REQUEST['Relation']))
-	{	$Relation = $_REQUEST['Relation'];	}
+if (isset ($_REQUEST['Relation']))
+{$Relation = $_REQUEST['Relation'];}
 
         if (isset($_REQUEST['LastName']))
         {
-	        $sqlContact = "INSERT INTO `Participant` (lastName, firstName, jobTitle, email, reasonForIncident)                       VALUES ('$LastName', '$FirstName', '$Job', '$Email', '$Relation');";
-		if ($db->query($sqlContact) === TRUE)
+        $sqlContact = "INSERT INTO `Participant` (lastName, firstName, jobTitle, email, reasonForIncident) VALUES ('$LastName', '$FirstName', '$Job', '$Email', '$Relation');";
+/*if ($db->query($sqlContact) === TRUE)
                 {
                         echo "New Incident entered into database";
                 }
@@ -77,10 +67,10 @@
                 {
                         echo "Error: " . $sqlContact . "<br>" . $db->error;
                 }
+*/
         }
 
-	$sqlP = "SELECT * FROM `participant`;";
-        $resultParticipants = $db->query($sqlP);
+
 
         #DESCRIPTION
         if (isset($_REQUEST['textarea']))
@@ -90,5 +80,5 @@
                            VALUES ('$textarea');";
 
 
-	$db->close();
+$db->close();
 ?>

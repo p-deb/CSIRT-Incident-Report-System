@@ -8,7 +8,7 @@
 	if (isset($_REQUEST['pass']))
 	{	$pass = $_REQUEST['pass'];	}
 
-	$sqlLogin = mysqli_query($db,"SELECT * FROM login WHERE username = '$user' AND password = '$pass'");
+	$sqlLogin = mysqli_query($db,"SELECT * FROM incidentResponders WHERE username = '$user' AND password = '$pass'");
 		
 	if (mysqli_num_rows($sqlLogin) == 1)
 	{		

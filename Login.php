@@ -1,32 +1,22 @@
 <?php
 
-	$host = 'localhost';
-	$user = 'proggadeb';
-	$pw = '';
-	$database = 'proggadeb';
-	
-	$db = new mysqli($host, $user, $pw, $database);
-	if ($db->connect_errno)
-	{
-		echo "Connect failed: ". $db->connect_error;
-		exit();
-	}
+	include("connection.php");	// connects to database
+	session_start();
 
 	if (isset($_REQUEST['user']))
 	{	$user = $_REQUEST['user'];	}
 	if (isset($_REQUEST['pass']))
 	{	$pass = $_REQUEST['pass'];	}
+
+	$sqlLogin = mysqli_query($db,"SELECT * FROM login WHERE username = '$user' AND password = '$pass'");
 		
-	if (isset($_REQUEST['user']))
+	if (mysqli_num_rows($sqlLogin) == 1)
 	{		
-		if ("username = $user AND password = $pass")
-		{
-			include 'Homepage.php';
-		}
-		else
-		{
-			echo "Error: " . $sqlLogin . "<br>" . $db->error;
-		}
+		$_SESSION['login_user'] = $user;
+		include 'Homepage.php';
 	}
-	
+	else
+	{
+		echo "Error: " . $sqlLogin . "<br>" . $db->error;
+	}	
 ?>

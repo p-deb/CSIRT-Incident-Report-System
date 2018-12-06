@@ -4,12 +4,6 @@ h1 {
   font-size: 25px;
 }
 
-/*h3 {
-  text-align: left;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 18px;
-}*/
-
 body {
   font-family: "Courier New";
 }
@@ -22,29 +16,44 @@ ul {
 	background-color: #e6e6e6;
 }
 
-table.IncidentsTable {
-  display: inline-block;
-	color: black;
-  border: 2px;
-	background-color: #45CEA2;
+#headerItem {
+  width: 190px;
+	text-align:center;
 }
+
+#headerItemTitle {
+  width: 520px;
+	text-align:center;
+}
+
+th {
+  width:100%;
+  text-transform: uppercase;
+  background-color: #45CEA2;
+  overflow: hidden;
+  font-weight:bold;
+  color: black;
+  height: 40px;
+  vertical-align: center;
+  padding(12 * 1.5) 0;
+}
+
 
 td {
-  overflow: hidden;
-  vertical-align: center;
-  display: inline-block;
-  width: 200px;
-  height: 35px;
-  border: 1px solid black;
+  text-align:center;
+	padding: (12 * 1.5) 0;
+  border: 0px;
+  height: 30px;
 }
 
-#number {
-  width: 150px;
+tr:nth-child(even) {
+  background: #ffffff;
 }
 
-#title {
-  width: 490px;
+tr:nth-child(odd) {
+  background: #e0e0e0;
 }
+
 
 li {
 	float: left;

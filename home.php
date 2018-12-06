@@ -13,7 +13,7 @@
 	if (mysqli_num_rows($sqlLogin) == 1)
 	{		
 		$_SESSION['login_user'] = $user;
-		include 'Homepage.php';
+		include 'Homepage.html';
 	}
 	else
 	{

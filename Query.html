@@ -1,20 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title> Query Incidents</title>
- <link rel="stylesheet" type="text/css" href="Query.css"/>
-</head>
-<body>
-<h3> Search For An Incident </h3>
-<!-- name = section of db to look in -->
-	<!--<form name = "query" action = "Query.php" method = "POST">
-		Enter Incident # <input type = "text" name = "incidentNo" required/><br><br>
-	</form>-->
+<?php
+        include ("connection.php");
+	echo "<link rel='stylesheet' type='text/css' href='Query.css' />";
 
-  <form class="query" name = "query" action = "Query.php" method = "POST">
-    Enter Incident #:
-    <input type="text" class="input-medium search-query"  name = "incidentNo" required>
-    <button type="submit" class="button">Search</button>
-</form>
+	if (isset($_REQUEST['incidentNo']))
+        {       $incidentNo = $_REQUEST['incidentNo'];  }
 
-</body>
+	$sql = "SELECT * FROM Incident WHERE incidentNo = $incidentNo";
+	$result = $db->query($sql);
+
+	if(!$result){
+                echo "Oops! " . $db->error;
+        }
+        else{
+                echo "<br>" . $result->num_rows. " ticket(s) displayed.<br>";
+
+	//two methods
+        $table = $result->fetch_all();
+        //var_dump($table);
+        echo "<table border = '1'>";
+        echo "<tr><th>Incident #</th><th>Incident Title</th><th>Incident Type</th><th>Status</th><th>Date Created</th></tr>";
+        foreach($table as $row){
+                echo "<tr>";
+                foreach($row as $value){
+                        echo "<td>$value</td>";
+                }
+                echo "</tr>";
+        }
+}
+
+        $db->close();
+
+?>

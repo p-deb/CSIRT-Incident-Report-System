@@ -1,17 +1,6 @@
 <?php
-        echo "<link rel='stylesheet' type='text/css' href='Query.css' />";
-
-        $host = 'localhost';
-        $user = 'proggadeb';
-        $pw = '';
-        $database = 'proggadeb';
-
-        $db = new mysqli($host, $user, $pw, $database);
-        if ($db->connect_errno)
-        {
-                echo "Connect failed: ". $db->connect_error;
-                exit();
-        }
+        include ("connection.php");
+	echo "<link rel='stylesheet' type='text/css' href='Query.css' />";
 
 	if (isset($_REQUEST['incidentNo']))
         {       $incidentNo = $_REQUEST['incidentNo'];  }

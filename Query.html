@@ -2,12 +2,19 @@
 <html lang="en">
 <head>
 <title> Query Incidents</title>
- <link rel="stylesheet" type="text/css" href="NewIncident.css"/>
+ <link rel="stylesheet" type="text/css" href="Query.css"/>
 </head>
 <body>
 <h3> Search For An Incident </h3>
-	<form name = "query" action = "Query.php" method = "POST"> <!-- name = section of db to look in -->
+<!-- name = section of db to look in -->
+	<!--<form name = "query" action = "Query.php" method = "POST">
 		Enter Incident # <input type = "text" name = "incidentNo" required/><br><br>
-		<input type = "submit" value = "Submit">
-	</form>
+	</form>-->
+
+  <form class="query" name = "query" action = "Query.php" method = "POST">
+    Enter Incident #:
+    <input type="text" class="input-medium search-query"  name = "incidentNo" required>
+    <button type="submit" class="button">Search</button>
+</form>
+
 </body>

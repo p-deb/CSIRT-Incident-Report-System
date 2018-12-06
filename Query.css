@@ -5,3 +5,24 @@ table, tr {
 	padding: 14px 16px;
 	text-decoration: none;
 }
+
+body {
+  font-family: "Courier New";
+}
+
+input[type=text]:focus {
+    border: 2px solid #555;
+}
+
+.button {
+    background-color: #45CEA2;
+    border: 1px;
+    padding: 3px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+}
+
+.button:hover:not(.current) {
+	background-color: black;
+  color: white;
+}

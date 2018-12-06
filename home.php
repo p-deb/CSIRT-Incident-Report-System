@@ -14,6 +14,7 @@
 	{		
 		$_SESSION['login_user'] = $user;
 		echo "<script> location.href='Homepage.html'; </script>";
+		exit;
 	}
 	else
 	{

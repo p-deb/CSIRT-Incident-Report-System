@@ -1,0 +1,15 @@
+h1 {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.SectionTitle {
+  display: block;
+  font-size: 18px;
+  padding: 4px;
+  line-height: 25px; /*adjusts the height of the section title, relative to border*/
+  width: 97%; /*will adjust to the size of the screen*/
+  height: 25px;
+  background-color: #e6e6e6;
+}

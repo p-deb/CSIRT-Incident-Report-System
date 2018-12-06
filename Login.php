@@ -18,9 +18,7 @@
 	{	$pass = $_REQUEST['pass'];	}
 		
 	if (isset($_REQUEST['user']))
-	{
-#		$sqlLogin = "SELECT * FROM login WHERE username = '$user' AND password = '$pass'";
-		
+	{		
 		if ("username = $user AND password = $pass")
 		{
 			include 'Homepage.php';

@@ -28,7 +28,17 @@ else{
   }
 }
 
-$title = $db->query("SELECT incidentTitle FROM Incident;");
+/*$title = $db->query("SELECT incidentTitle FROM Incident;");*/
+$title = $table->incidentTitle;
+echo "\nTitle:" . $title;
+
+$title = $table->$incidentTitle;
+echo "\nTitle:" . $title;
+
+$title = $result->incidentTitle;
+echo "\nTitle:" . $title;
+
+$title = $result->incidentTitle;
 echo "\nTitle:" . $title;
 
 $db->close();

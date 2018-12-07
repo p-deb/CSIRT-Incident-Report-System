@@ -26,15 +26,10 @@ else{
     }
     echo "</tr>";
   }
-
-  $title2 = $row['incidentTitle'];
-  echo "\nTitle 2:" . $title2;
-
-  $title3 = $table->['incidentTitle'];
+  
+  $title3 = $table->incidentTitle;
   echo "\nTitle 3:" . $title3;
 
-  $title4 = $row->['incidentTitle'];
-  echo "\nTitle 3:" . $title3;
 
 }
 

@@ -27,14 +27,14 @@ else{
     echo "</tr>";
   }
 
-  $title = $table->$title;
+  $title = $table['incidentTitle'];
   echo "Title:" . $title;
 
-  $title2 = $incidentNo->$title;
-  echo "Title 2:" . $title2;
+  $title2 = $incidentNo['incidentTitle'];
+  echo "\nTitle 2:" . $title2;
 
-  $title3 = $title;
-  echo "Title 3:" . $title3;
+  $title3 = ['incidentTitle'];
+  echo "\nTitle 3:" . $title3;
 
 }
 

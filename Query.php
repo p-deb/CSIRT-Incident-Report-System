@@ -27,8 +27,7 @@ else{
     echo "</tr>";
   }
 }
-echo "1" . $row['incidentTitle'];
-print $result['incidentTitle'];
+
 $title = $result[incidentTitle];
 echo "\nTitle:" . $title;
 $title = $row[incidentTitle];

@@ -27,9 +27,10 @@ else{
     echo "</tr>";
   }
 }
-
-print $result;
-$title = $result[0]->incidentTitle;
+echo "1" . $row['incidentTitle'];
+echo "2" . $result['incidentTitle'];
+print $result['incidentTitle'];
+$title = $result[incidentTitle];
 echo "\nTitle:" . $title;
 
 $db->close();

@@ -24,17 +24,12 @@ else{
     foreach($row as $value){
       echo "<td>$value</td>";
     }
-    echo "</tr>";
+    echo "</tr>"
   }
 
-  $title3 = $table->incidentTitle;
+  $title3 = "SELECT incidentTitle FROM $result;";
   echo "\nTitle 3:" . $title3;
 
-  $title2 = $table[incidentTitle];
-  echo "\nTitle 2:" . $title2;
-
-  $title1 = $table[0]->$incidentNo;
-  echo "\nTitle 1:" . $title1;
 }
 
 $db->close();

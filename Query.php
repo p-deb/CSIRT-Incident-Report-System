@@ -28,11 +28,6 @@ else{
   }
 }
 
-$title = $result[incidentTitle];
-echo "\nTitle:" . $title;
-$title = $row[incidentTitle];
-echo "\nTitle:" . $title;
-
 $db->close();
 
 ?>

@@ -28,9 +28,10 @@ else{
   }
 }
 echo "1" . $row['incidentTitle'];
-echo "2" . $result['incidentTitle'];
 print $result['incidentTitle'];
 $title = $result[incidentTitle];
+echo "\nTitle:" . $title;
+$title = $row[incidentTitle];
 echo "\nTitle:" . $title;
 
 $db->close();

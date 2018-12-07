@@ -38,7 +38,7 @@ $lastIncident = mysqli_query($db, "SET @lastIncident := (SELECT incidentNo FROM 
 $sql .= "INSERT INTO `Participant` (lastName, firstName, jobTitle, email, reasonForIncident) VALUES ('$LastName', '$FirstName', '$Job', '$Email', '$Relation');";
 $sql .= "INSERT INTO `Participant_has_Incident` VALUES ('$lastIncident', '$LastName', '$FirstName');";               
 $sql .= "INSERT INTO `IP Address` VALUES ('$lastIncident', '$IP', '$ipRelation');";
-$sql .= "INSERT INTO `Comments` VALUES (current_timestamp(), '$textarea', '@lastIncident');";
+$sql .= "INSERT INTO `Comments` VALUES (current_timestamp(), '$textarea', '$lastIncident');";
 
 if ($db->multi_query($sql) === TRUE)
 {echo "New ticket created and successfuly entered into database"; }

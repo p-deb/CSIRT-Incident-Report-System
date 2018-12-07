@@ -28,7 +28,8 @@ else{
   }
 }
 
-$title = $db->query("SELECT incidentTitle FROM Incident WHERE incidentNo=$incidentNo;");
+echo $result;
+$title = $result[0]->incidentTitle;
 echo "\nTitle:" . $title;
 
 $db->close();

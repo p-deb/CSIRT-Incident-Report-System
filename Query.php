@@ -1,33 +1,48 @@
+<html lang = "en">
+ <link rel="stylesheet" type ="text/css" href="Homepage.css"/>
+<body>
+
+<table class="IncidentsTable">
+  <tr class="TableHeader">
+    <th id="headerItem"><center>Incident #</center></th>
+    <th id="headerItemTitle"><center>Title</center></th>
+    <th id="headerItem"><center>Type</center></th>
+    <th id="headerItem"><center>Status</center></th>
+    <th id="headerItem"><center>Date Created</center></th>
+  </tr>
+
 <?php
-include ("connection.php");
-echo "<link rel='stylesheet' type='text/css' href='Query.css' />";
+        include ("connection.php");     //connects to db
 
-if (isset($_REQUEST['incidentNo']))
-{       $incidentNo = $_REQUEST['incidentNo'];  }
+        if (isset($_REQUEST['incidentNo']))
+	{       $incidentNo = $_REQUEST['incidentNo'];  }
 
-$sql = "SELECT * FROM Incident WHERE incidentNo = $incidentNo";
-$result = $db->query($sql);
+	$sql = "SELECT * FROM Incident WHERE incidentNo = $incidentNo";
+	$result = $db->query($sql);
 
-if(!$result){
-  echo "Oops! " . $db->error;
-}
-else{
-  echo "<br>" . $result->num_rows. " ticket(s) displayed.<br>";
+	if (!$result){
+		echo "Oops! " . $db->error;
+	}
+	else{ 
+          $table = $result->fetch_all();
+          {
+                foreach($table as $row) {
+                ?>
+               		 <tr class = "TableRow">
+                <?php
 
-  $table = $result->fetch_all();
-
-  echo "<table border = '1'>";
-  echo "<tr><th>Incident #</th><th>Incident Title</th><th>Incident Type</th><th>Status</th><th>Date Created</th></tr>";
-
-  foreach($table as $row){
-    echo "<tr>";
-    foreach($row as $value){
-      echo "<td>$value</td>";
-    }
-    echo "</tr>";
-  }
-}
-
-$db->close();
-
+                	foreach($row as $value)
+                	{
+                        	echo "<td>$value</td>";
+                	}
+                }
+                ?>
+                </tr>
+<?php
+          }
+	}
 ?>
+</table>
+
+</body>
+</html>

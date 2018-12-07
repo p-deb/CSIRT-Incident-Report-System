@@ -24,7 +24,7 @@ else{
     foreach($row as $value){
       echo "<td>$value</td>";
     }
-    echo "</tr>"
+    echo "</tr>";
   }
 }
 

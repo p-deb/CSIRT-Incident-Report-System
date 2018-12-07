@@ -41,7 +41,7 @@ echo "\nTitle:" . $title;
 $title = $result->incidentTitle;
 echo "\nTitle:" . $title;
 
-$title = $db->query("SELECT incidentTitle FROM Incident WHERE incidentNo=$incidentNo;");
+$title = $db->query("SELECT incidentTitle FROM Incident WHERE incidentNo=$incidentNo";);
 echo "\nTitle:" . $title;
 
 $db->close();

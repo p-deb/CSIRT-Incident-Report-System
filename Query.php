@@ -28,10 +28,8 @@ else{
   }
 }
 
-  $title3 = "SELECT incidentTitle FROM $result;";
-  echo "\nTitle 3:" . $title3;
-
-}
+$title3 = "SELECT incidentTitle FROM $result;";
+echo "\nTitle 3:" . $title3;
 
 $db->close();
 

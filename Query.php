@@ -26,6 +26,7 @@ else{
     }
     echo "</tr>"
   }
+}
 
   $title3 = "SELECT incidentTitle FROM $result;";
   echo "\nTitle 3:" . $title3;

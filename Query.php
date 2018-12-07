@@ -28,7 +28,7 @@ else{
   }
 }
 
-echo $result;
+print $result;
 $title = $result[0]->incidentTitle;
 echo "\nTitle:" . $title;
 

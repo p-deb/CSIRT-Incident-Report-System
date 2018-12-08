@@ -27,7 +27,7 @@
         {       $textarea = $_REQUEST['textarea'];      }
 
 #IP
-	if (isset($_REQUEST['ip']))
+if (isset($_REQUEST['ip']))
         {       $IP = $_REQUEST['ip'];        }
         if (isset ($_REQUEST['ipRelation']))
         {       $ipRelation = $_REQUEST['ipRelation'];     }
@@ -41,13 +41,7 @@ $sql .= "INSERT INTO `IP Address` VALUES ('$lastIncident', '$IP', '$ipRelation')
 $sql .= "INSERT INTO `Comments` VALUES (current_timestamp(), '$textarea', '$lastIncident');";
 
 if ($db->multi_query($sql) === TRUE)
-{
-?>
-	<h4>New ticket created and successfully entered into database!</h4> 
-	<br><h4>In 3 seconds, you will be redirected back to the Homepage.</h4> 
-<?php
-	header("refresh: 3; url = Homepage.php");
-}
+{echo "New ticket created and successfuly entered into database"; }
 else
 {echo "Error: " .$sql . "<br>" . $db->error;}
 

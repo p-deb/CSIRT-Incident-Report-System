@@ -59,7 +59,7 @@
         <th id="headerItemDescription"><center>Description</center></th>
       </tr>
 
-	<?php	
+	<?php
 	$sqlDesc = "SELECT description, dateUpdated FROM Comments WHERE Incident_incidentNo = $incidentNo";
         $result2 = $db->query($sqlDesc);
     if (!$result2){
@@ -75,7 +75,7 @@
 
               foreach($row2 as $value2)
               {
-                echo "<td>$value2</td>";
+                echo "<td id="descriptionTable">$value2</td>";
               }
             }
             ?>

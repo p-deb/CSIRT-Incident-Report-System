@@ -33,6 +33,11 @@ ul {
   text-align: center;
 }
 
+#descriptionTable {
+  position: absolute;
+  top: -150px;
+}
+
 th {
   width:100%;
   text-transform: uppercase;

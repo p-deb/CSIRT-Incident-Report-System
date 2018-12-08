@@ -34,11 +34,14 @@ if (isset($_REQUEST['ip']))
 
 
 $sql = "INSERT INTO `Incident` (incidentNo, incidentType, dateCreated, incidentStatus, incidentTitle ) VALUES (DEFAULT, '$Category', current_timestamp(), '$Status', '$IncidentTitle');";
-$lastIncident = mysqli_query($db, "SET @lastIncident := (SELECT incidentNo FROM incident WHERE incident.incidentNo = (SELECT MAX(incidentNo) FROM incident));");     
+$last = mysqli_query($db, "SELECT incidentNo FROM Incident ORDER BY incidentNo DESC;");
+$lastIncident = mysqli_fetch_row($last);
+echo "The most recent incident entered is: " .$lastIncident[0];
 $sql .= "INSERT INTO `Participant` (lastName, firstName, jobTitle, email, reasonForIncident) VALUES ('$LastName', '$FirstName', '$Job', '$Email', '$Relation');";
-$sql .= "INSERT INTO `Participant_has_Incident` VALUES ('$lastIncident', '$LastName', '$FirstName');";               
-$sql .= "INSERT INTO `IP Address` VALUES ('$lastIncident', '$IP', '$ipRelation');";
-$sql .= "INSERT INTO `Comments` VALUES (current_timestamp(), '$textarea', '$lastIncident');";
+echo "Incident number:" . $lastIncident[0];
+$sql .= "INSERT INTO `Participant_has_Incident` VALUES ('$lastIncident[0]', '$LastName', '$FirstName');";               
+$sql .= "INSERT INTO `IP Address` VALUES ('$lastIncident[0]', '$IP', '$ipRelation');";
+$sql .= "INSERT INTO `Comments` VALUES (current_timestamp(), '$textarea', '$lastIncident[0]');";
 
 if ($db->multi_query($sql) === TRUE)
 {echo "New ticket created and successfuly entered into database"; }

@@ -58,6 +58,33 @@
       <tr class="TableHeaderDescription">
         <th id="headerItemDescription"><center>Description</center></th>
       </tr>
+
+	<?php	
+	$sqlDesc = "SELECT description, dateUpdated FROM Comments WHERE Incident_incidentNo = $incidentNo";
+        $result2 = $db->query($sqlDesc);
+    if (!$result2){
+      echo "Oops! " . $db->error;
+    }
+      else{
+        $table2 = $result2->fetch_all();
+        {
+          foreach($table2 as $row2) {
+            ?>
+            <tr class = "TableHeaderDescription">
+              <?php
+
+              foreach($row2 as $value2)
+              {
+                echo "<td>$value2</td>";
+              }
+            }
+            ?>
+          </tr>
+          <?php
+        }
+      }
+      ?>
+
     </table>
 
   </body>

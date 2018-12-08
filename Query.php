@@ -16,15 +16,8 @@
     include ("connection.php");     //connects to db
     if (isset($_REQUEST['incidentNo']))
     {       $incidentNo = $_REQUEST['incidentNo'];  }
-    $sql = "SELECT * FROM Incident WHERE incidentNo = $incidentNo";
-    $result = $db->query($sql);
-    if (!$result){
-      echo "Oops! " . $db->error;
-    }
-    else{
-
       if (isset($_REQUEST['incidentNo']))
-      {       $incidentNo = $_REQUEST['incidentNo'];  }
+      {       
 
       $sql = "SELECT * FROM Incident WHERE incidentNo = $incidentNo";
       $result = $db->query($sql);
@@ -50,28 +43,29 @@
           <?php
         }
       }
-    } //
+    }
+
       ?>
-    </table>
 
     <table class="CommentsTable">
-      <tr class="TableHeaderDescription">
-        <th id="headerItemDescription"><center>Description</center></th>
-        <th id="dateDescription"><center>Date Updated</center></th>
-      </tr>
+    <tr class="TableHeaderDescription">
+      <th id="headerItemTitle"><center>Description</center></th>
+      <th id="headerItem"><center>Date Updated</center></th>
+    </tr>
+<br><br>
 
-	<?php
-	$sqlDesc = "SELECT description, dateUpdated FROM Comments WHERE Incident_incidentNo = $incidentNo";
-        $result2 = $db->query($sqlDesc);
-    if (!$result2){
-      echo "Oops! " . $db->error;
-    }
+    <?php
+    $sqlDesc = "SELECT description, dateUpdated FROM Comments WHERE Incident_incidentNo = $incidentNo";
+    $result2 = $db->query($sqlDesc);
+      if (!$result2){
+        echo "Oops! " . $db->error;
+      }
       else{
         $table2 = $result2->fetch_all();
         {
           foreach($table2 as $row2) {
             ?>
-            <tr class = "Comments">
+            <tr class = "TableHeaderDescription">
               <?php
 
               foreach($row2 as $value2)
@@ -86,7 +80,85 @@
       }
       ?>
 
-    </table>
+
+    <?php
+    $sqlIP = "SELECT IPaddress, reasonForIncident FROM `ip address` WHERE Incident_incidentNo = $incidentNo";
+    $result3 = $db->query($sqlIP);
+      if (!$result3){
+        echo "Oops! " . $db->error;
+      }
+      else{
+?>
+<table class="IPTable">
+    <tr class="TableHeaderIP">
+      <th id="headerItem"><center>IP Address</center></th>
+      <th id="headerItemTitle"><center>Reason for Incident</center></th>
+    </tr>
+<br><br>
+
+<?php
+        $table3 = $result3->fetch_all();
+        {
+          foreach($table3 as $row3) {
+            ?>
+            <tr class = "TableHeaderIP">
+              <?php
+
+              foreach($row3 as $value3)
+              {
+                echo "<td>$value3</td>";
+              }
+            }
+            ?>
+          </tr>
+          <?php
+        }
+      }
+      ?>
+
+    <?php
+    $l = mysqli_query($db, "SELECT Participant_lastName FROM `Participant_has_Incident` WHERE Incident_incidentNo = $incidentNo;");
+    $lname = mysqli_fetch_row($l);
+    $f = mysqli_query($db, "SELECT Participant_firstName FROM `Participant_has_Incident` WHERE Incident_incidentNo = $incidentNo;");
+    $fname = mysqli_fetch_row($f);
+    $sqlParticipant = "SELECT * FROM `participant` WHERE lastName = '$lname[0]' AND firstName = '$fname[0]'";
+    $result4 = $db->query($sqlParticipant);
+      if (!$result4){
+        echo "Oops! " . $db->error;
+      }
+      else{
+?>
+<table class="ParticipantTable">
+    <tr class="TableHeaderParticipant">
+      <th id="headerItem"><center>Last Name</center></th>
+<th id="headerItem"><center>First Name</center></th>
+<th id="headerItem"><center>Job Title</center></th>
+<th id="headerItem"><center>Email</center></th>
+      <th id="headerItemTitle"><center>Reason for Incident</center></th>
+    </tr>
+<br><br>
+
+<?php
+        $table4 = $result4->fetch_all();
+        {
+          foreach($table4 as $row4) {
+            ?>
+            <tr class = "TableHeaderParticipant">
+              <?php
+
+              foreach($row4 as $value4)
+              {
+                echo "<td>$value4</td>";
+              }
+            }
+            ?>
+          </tr>
+          <?php
+        }
+      }
+      ?>
+
+
 
   </body>
   </html>

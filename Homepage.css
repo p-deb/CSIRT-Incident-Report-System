@@ -33,9 +33,9 @@ ul {
   text-align: center;
 }
 
-#CommentsTable {
+.Comments {
   position: absolute;
-  top: 450px;
+  top:150px;
 }
 
 th {

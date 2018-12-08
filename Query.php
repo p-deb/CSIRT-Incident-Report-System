@@ -70,7 +70,7 @@
         {
           foreach($table2 as $row2) {
             ?>
-            <tr class = "TableHeaderDescription">
+            <tr class = "Comments">
               <?php
 
               foreach($row2 as $value2)

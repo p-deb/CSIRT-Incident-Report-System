@@ -8,7 +8,7 @@
  <ul>
      <li> <a class= "current" href= "#homepage"> Home </a> </li>
      <li> <a href = "Query.html"> Search </a> </li>
-     <li> <a href = "NewIncident.html" target = "_blank"> Report an Incident </a> </li>
+     <li> <a href = "NewIncident.html"> Report an Incident </a> </li>
  </ul>
 
 <br><br>

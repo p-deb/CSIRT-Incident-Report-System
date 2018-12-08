@@ -57,6 +57,7 @@
     <table class="CommentsTable">
       <tr class="TableHeaderDescription">
         <th id="headerItemDescription"><center>Description</center></th>
+        <th id="dateDescription"><center>Date Updated</center></th>
       </tr>
 
 	<?php

@@ -29,7 +29,15 @@ ul {
 #headerItemDescription {
   position: absolute;
   top: 100px;
-  width: 98%;
+  width: 79%;
+  text-align: center;
+}
+
+#dateDescription {
+  position: absolute;
+  top: 100px;
+  right: 22px;
+  width: 18%;
   text-align: center;
 }
 

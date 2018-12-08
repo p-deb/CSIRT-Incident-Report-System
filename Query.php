@@ -75,7 +75,7 @@
 
               foreach($row2 as $value2)
               {
-                echo "<td id="descriptionTable">$value2</td>";
+               ?> <td id="descriptionTable"> <?php "$value2</td>";
               }
             }
             ?>

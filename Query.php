@@ -10,7 +10,7 @@
       <th id="headerItem"><center>Status</center></th>
       <th id="headerItem"><center>Date Created</center></th>
     </tr>
-    <tr>
+    <tr class="TableHeaderDescription">
       <th id="headerItemDescription"><center>Description</center></th>
     </tr>
 

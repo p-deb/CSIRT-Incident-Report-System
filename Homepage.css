@@ -26,6 +26,13 @@ ul {
 	text-align:center;
 }
 
+#headerItemDescription {
+  position: absolute;
+  top: 100px;
+  width: 98%;
+  text-align: center;
+}
+
 th {
   width:100%;
   text-transform: uppercase;
@@ -37,7 +44,6 @@ th {
   vertical-align: center;
   padding(12 * 1.5) 0;
 }
-
 
 td {
   text-align:center;

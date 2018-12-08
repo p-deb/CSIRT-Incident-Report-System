@@ -57,6 +57,19 @@ textarea:focus {
     margin: 4px 2px;
 }
 
+.Status {
+  position: relative;
+  float: left;
+  min-width: 300px;
+  width: 300px;
+  min-height: 60px;
+  font-family: 'Roboto';
+  color: #777;
+  font-weight: 300;
+  background-color: #fff;
+  box-shadow: 1px 2px 10px -2px
+}
+
 #more_fields:hover:not(.current) {
 	background-color: black;
   color: white;

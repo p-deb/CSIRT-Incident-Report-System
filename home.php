@@ -22,7 +22,7 @@
         }
         else
         {
-		  ?> <h2>Invalid Login. Please try again!</h2> <?php
-                  header("refresh: 2; url = index.html");	// if invalid login, user is redirected to login page
+		 ?> <h2>Invalid Login. Please try again!</h2> <?php
+                  header("refresh: 0; url = index.html");	// if invalid login, user is redirected to login page
         }
 ?>

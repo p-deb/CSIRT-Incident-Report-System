@@ -1,7 +1,6 @@
 <?php 
      include("connection.php");// Connects to db
-     include("session.php");	//Verifies which user logged in is entering data
-	session_start();
+     include("session.php");//Verifies which user logged in is entering data
      # Inserts Incident title, category, and status into incident table
      # Incident No is also incremented by 1
      if (isset($_REQUEST['IncidentTitle']))
@@ -35,27 +34,26 @@ if (isset($_REQUEST['ip']))
 
 
 $sql = "INSERT INTO `Incident` (incidentType, dateCreated, incidentStatus, incidentTitle ) VALUES ('$Category', current_timestamp(), '$Status', '$IncidentTitle');";
+
+$sql.= "INSERT INTO participant_has_incident SELECT '$LastName', '$FirstName', MAX(incidentNo) FROM incident;";
+
 $sql .= "INSERT INTO `Participant` (lastName, firstName, jobTitle, email, reasonForIncident) VALUES ('$LastName', '$FirstName', '$Job', '$Email', '$Relation');";
+              
+$sql .= "INSERT INTO `IP Address` SELECT '$IP', '$ipRelation', MAX(incidentNo) FROM incident;";
 
-$last = mysqli_query($db, "SELECT MAX(incidentNo) AS maxNo FROM incident");
-$row = mysqli_fetch_assoc($last);
-$lastIncident = $row['maxNo'];
-
-echo "The most recent incident entered is: " .$lastIncident; ?> <br><br> <?php
-echo "Incident number:" . $lastIncident;
-
-$sql .= "INSERT INTO `Participant_has_Incident` VALUES ('$lastIncident', '$LastName', '$FirstName');";               
-$sql .= "INSERT INTO `IP Address` VALUES ('$lastIncident', '$IP', '$ipRelation');";
-$sql .= "INSERT INTO `Comments` VALUES (current_timestamp(), '$textarea', '$lastIncident', '$login_session');";
+$sql .= "INSERT INTO `Comments` SELECT current_timestamp(), '$textarea', '$login_session', MAX(incidentNo) FROM incident;";
 
 if ($db->multi_query($sql) === TRUE)
 { ?> <br>
-<?php
-echo "New ticket created and successfuly entered into database"; }
+<link rel="stylesheet" type ="text/css" href="Homepage.css"/>
+<h3>New ticket created and successfully entered into database</h3>
+<h3>If you are not redirected to the homepage in 3 seconds, please <a href = "Homepage.php"> click here </a></h3>
+<?php 
+header("refresh: 2; url = Homepage.php");
+}
 else
-{echo "Error: " .$sql . "<br>" . $db->error;}
+{echo "Error: " .$sql . "<br>" . $db->error;
+}
 
 $db->close();
-header("refresh: 3; url = Homepage.php");
 ?>
-

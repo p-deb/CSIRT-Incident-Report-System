@@ -1,7 +1,3 @@
-<?php
-	include("session.php");
-	session_start();
-?>
 <html lang = "en">
 <link rel="stylesheet" type ="text/css" href="Homepage.css"/>
 <body>
@@ -60,7 +56,7 @@
 <br><br>
 
     <?php
-    $sqlDesc = "SELECT description, IncidentResponders_username, dateUpdated FROM Comments WHERE Incident_incidentNo = $incidentNo ORDER BY dateUpdated DESC";
+    $sqlDesc = "SELECT description, IncidentResponders_username, dateUpdated FROM Comments WHERE Incident_incidentNo = $incidentNo";
     $result2 = $db->query($sqlDesc);
       if (!$result2){
         echo "Oops! " . $db->error;
@@ -122,11 +118,7 @@
       ?>
 
     <?php
-    $l = mysqli_query($db, "SELECT Participant_lastName FROM `Participant_has_Incident` WHERE Incident_incidentNo = '$incidentNo;'");
-    $lname = mysqli_fetch_row($l);
-    $f = mysqli_query($db, "SELECT Participant_firstName FROM `Participant_has_Incident` WHERE Incident_incidentNo = $incidentNo;");
-    $fname = mysqli_fetch_row($f);
-    $sqlParticipant = "SELECT * FROM `participant` WHERE lastName = '$lname[0]' AND firstName = '$fname[0]'";
+    $sqlParticipant = "SELECT participant.lastName, participant.firstName, participant.jobTitle, participant.email, participant.reasonForIncident FROM Participant,participant_has_incident WHERE participant.lastName = participant_has_incident.lastName AND participant_has_incident.incidentNo = '$incidentNo';";
     $result4 = $db->query($sqlParticipant);
       if (!$result4){
         echo "Oops! " . $db->error;

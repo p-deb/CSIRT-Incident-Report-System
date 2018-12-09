@@ -1,7 +1,7 @@
 <?php 
      include("connection.php");// Connects to db
      include("session.php");	//Verifies which user logged in is entering data
-
+	session_start();
      # Inserts Incident title, category, and status into incident table
      # Incident No is also incremented by 1
      if (isset($_REQUEST['IncidentTitle']))

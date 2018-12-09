@@ -1,3 +1,7 @@
+<?php
+	include("session.php");
+	session_start();
+?>
 <html lang = "en">
 <link rel="stylesheet" type ="text/css" href="Homepage.css"/>
 <body>

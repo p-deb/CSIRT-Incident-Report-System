@@ -1,5 +1,6 @@
 <?php 
      include("connection.php");// Connects to db
+     include("session.php");	//Verifies which user logged in is entering data
 
      # Inserts Incident title, category, and status into incident table
      # Incident No is also incremented by 1
@@ -45,7 +46,7 @@ echo "Incident number:" . $lastIncident;
 
 $sql .= "INSERT INTO `Participant_has_Incident` VALUES ('$lastIncident', '$LastName', '$FirstName');";               
 $sql .= "INSERT INTO `IP Address` VALUES ('$lastIncident', '$IP', '$ipRelation');";
-$sql .= "INSERT INTO `Comments` VALUES (current_timestamp(), '$textarea', '$lastIncident');";
+$sql .= "INSERT INTO `Comments` VALUES (current_timestamp(), '$textarea', '$lastIncident', '$login_session');";
 
 if ($db->multi_query($sql) === TRUE)
 { ?> <br>

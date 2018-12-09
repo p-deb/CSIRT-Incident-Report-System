@@ -50,12 +50,13 @@
     <table class="CommentsTable">
     <tr class="TableHeaderDescription">
       <th id="headerItemTitle"><center>Description</center></th>
+      <th id="headerItem"><center>Responder</center></th>
       <th id="headerItem"><center>Date Updated</center></th>
     </tr>
 <br><br>
 
     <?php
-    $sqlDesc = "SELECT description, dateUpdated FROM Comments WHERE Incident_incidentNo = $incidentNo";
+    $sqlDesc = "SELECT description, IncidentResponders_username, dateUpdated FROM Comments WHERE Incident_incidentNo = $incidentNo ORDER BY dateUpdated DESC";
     $result2 = $db->query($sqlDesc);
       if (!$result2){
         echo "Oops! " . $db->error;

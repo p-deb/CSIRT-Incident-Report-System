@@ -56,7 +56,7 @@
 <br><br>
 
     <?php
-    $sqlDesc = "SELECT description, IncidentResponders_username, dateUpdated FROM Comments WHERE Incident_incidentNo = $incidentNo";
+    $sqlDesc = "SELECT description, IncidentResponders_username, dateUpdated FROM Comments WHERE Incident_incidentNo = $incidentNo ORDER BY dateUpdated DESC;";
     $result2 = $db->query($sqlDesc);
       if (!$result2){
         echo "Oops! " . $db->error;

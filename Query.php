@@ -82,7 +82,7 @@
 
 
     <?php
-    $sqlIP = "SELECT IPaddress, reasonForIncident FROM `ip address` WHERE Incident_incidentNo = $incidentNo";
+    $sqlIP = "SELECT IPaddress, reasonForIncident FROM `ip address` WHERE Incident_incidentNo = '$incidentNo'";
     $result3 = $db->query($sqlIP);
       if (!$result3){
         echo "Oops! " . $db->error;
@@ -117,7 +117,7 @@
       ?>
 
     <?php
-    $l = mysqli_query($db, "SELECT Participant_lastName FROM `Participant_has_Incident` WHERE Incident_incidentNo = $incidentNo;");
+    $l = mysqli_query($db, "SELECT Participant_lastName FROM `Participant_has_Incident` WHERE Incident_incidentNo = '$incidentNo;'");
     $lname = mysqli_fetch_row($l);
     $f = mysqli_query($db, "SELECT Participant_firstName FROM `Participant_has_Incident` WHERE Incident_incidentNo = $incidentNo;");
     $fname = mysqli_fetch_row($f);

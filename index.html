@@ -4,15 +4,66 @@
 <link rel = "stylesheet" type = "text/css" href = "Homepage.css"/>
 </head>
 <body>
-   <h1> CSIRT INCIDENT REPORT SYSTEM </h1>
-<div align="center">
+   <h1><br><br><br><br> CSIRT INCIDENT REPORT SYSTEM </h1>
+<div align="center" class="login">
 <form action="home.php" method="POST">
 
-<b>Username:</b><input type="text" name="user"><br>
-<b>Password:</b><input type="password" name="pass"><br>
-<input type="submit">
+  <div class="UsernamePassword">
+    <b>USERNAME<br></b><input type="text" name="user"><br><br>
+    <b>PASSWORD<br></b><input type="password" name="pass"><br><br>
+  </div>
+
+  <div class = "Login">
+    <input type="submit" value="Login">
+  </div>
 
 </form>
 </div>
 </body>
+
+<style type="text/css">
+
+
+input[type=text]:focus {
+    border: 2px solid #555;
+}
+
+input[type=text] {
+  width: 250px;
+  height: 30px;
+}
+
+input[type=password] {
+  width: 250px;
+  height: 30px;
+}
+
+.Login input[type=button], input[type=submit], input[type=reset] {
+    background-color: #0464ff;
+    border: 1px;
+    color: white;
+    padding: 16px 144px;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: center;
+    font-size: 16px;
+    width: 250px;
+}
+
+.Login {
+  height: 50%;
+display: flex;
+align-items: center;
+justify-content: center
+}
+
+.UsernamePassword {
+  top: 50%;
+}
+
+
+</style>
+
 </html>

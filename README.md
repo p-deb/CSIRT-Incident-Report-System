@@ -8,13 +8,13 @@ ERD Model
 
 ## ERD Model
 
-(/img/image10.png)
+![ERD Mdel](/img/image10.png)
 
 ## MySQL Workbench Data Model
 
 **Assumptions/Explanations:**
 
-(/img/image2.png)
+![Data Model](/img/image2.png)
 
 * Each Incident has a type (DOS, Phishing, …), a date created, a status (Open, Closed, Stalled), a title, and an incident number which is auto-incremented
 * Each incident can have one to many comments, but each comment can be linked to exactly one incident. These comments will have a timestamp for when they are added and a description containing information regarding the specific incident the comment is linked to. The username of the responder entering the comment will also be linked.
@@ -31,39 +31,39 @@ When an user goes to the website (compsci.adelphi.edu/~proggadeb/DBMSFinal/) the
 
 We have created a general *username*: ```dbms``` and *password* ```fall2018``` for the purposes of this project. We have also created a specific *username* ```xliu``` and *password* ```pwd```.
 
-(/img/image6.png)
+![Login System](/img/image6.png)
 
 Once the user logs in, they will be redirected to the homepage, where all the incidents are listed in order of most recent to least recent. The incident #, title, type, status and date created are displayed.
 
-(/img/image11.png)
+![Homepage](/img/image11.png)
 
 If the user wishes to see an incident report, they can click on the search button in the menu and type the incident number they wish to see.
 
-(/img/image3.png)
+![Search for Incident](/img/image3.png)
 
 Once they click search, they will see the full incident report.
 
-(/img/image8.png)
+![Incident Report](/img/image8.png)
 
 The user also has the ability to report a new incident by clicking the “Report an Incident” button on the menu. Some of the fields below (ie. Title, Status, Type, and Description) are required fields and the form will not be submitted unless they are filled out.
 
-(/img/image9.png)
+![New Incident Report](/img/image9.png)
 
 Users creating new incident will have the ability to add as many additional contacts and/or IP addresses as they want.
 
-(/img/image7.png)
+![Additional Fields](/img/image7.png)
 
 Next, they will specify an incident type (Phishing, Denial of Service, Worm or Virus, Intrusion, and Other). If they choose other, they will be asked to specify.
 
-(/img/image4.png)
+![Type](/img/image4.png)
 
 Lastly, they will write details about the incident and then submit.
 
-(/img/image5.png)
+![Description](/img/image5.png)
 
 If the incident submitted is successfully entered into the database, the user will see the following screen and be redirected to the homepage. If they are not redirected, they click on “click here” to manually be taken back to the homepage.
 
-(/img/image1.png)
+![Successfully Submitted](/img/image1.png)
 
 ### Bugs and Limitations:
 * When adding multiple participants to a new incident, only the first participant’s information will be recorded. We believe if we made a counter variable that increases as the buttons are pressed, and a loop in the NewIncident.php file could fix this issue.

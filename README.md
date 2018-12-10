@@ -5,11 +5,9 @@ Lynoska Garcia and Progga Deb
 CSC 263: Database Management Systems  
 December 10th, 2018
 
-
 ## ERD Model
 
-![ERD Model](/img/image10.png)
-
+![ERD Model](/img/image10.jpg)
 
 ## MySQL Workbench Data Model
 

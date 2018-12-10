@@ -1,4 +1,5 @@
 <?php
+// Connection to database "proggadeb"
         $host = 'localhost';
         $user = 'proggadeb';
         $pw = '';

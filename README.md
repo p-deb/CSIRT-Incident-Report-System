@@ -11,9 +11,9 @@ December 10th, 2018
 
 ## MySQL Workbench Data Model
 
-**Assumptions/Explanations:**
-
 ![Data Model](/img/image2.png)
+
+**Assumptions/Explanations:**
 
 * Each Incident has a type (DOS, Phishing, …), a date created, a status (Open, Closed, Stalled), a title, and an incident number which is auto-incremented
 * Each incident can have one to many comments, but each comment can be linked to exactly one incident. These comments will have a timestamp for when they are added and a description containing information regarding the specific incident the comment is linked to. The username of the responder entering the comment will also be linked.

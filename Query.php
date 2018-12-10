@@ -14,11 +14,13 @@
 
     <?php
     include ("connection.php");     //connects to db
+
+// Displays full report of incident being queried
+  
     if (isset($_REQUEST['incidentNo']))
     {       $incidentNo = $_REQUEST['incidentNo'];  }
       if (isset($_REQUEST['incidentNo']))
       {       
-
       $sql = "SELECT * FROM Incident WHERE incidentNo = $incidentNo";
       $result = $db->query($sql);
 

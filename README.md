@@ -3,12 +3,11 @@
 Mini Project: CSIRT Incident Report System
 Lynoska Garcia and Progga Deb
 CSC 263: Database Management Systems
-December 10th, 2018
-ERD Model  
+December 10th, 2018  
 
 ## ERD Model
 
-![ERD Mdel](/img/image10.png)
+![ERD Model](/img/image10.png)
 
 ## MySQL Workbench Data Model
 

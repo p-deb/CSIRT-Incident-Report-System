@@ -24,7 +24,6 @@ December 10th, 2018
 Responders are able to insert, update, and delete each component of an incident directly through the database. On the web interface, however, responders may only add and query incidents.
 
 ## Our Web Interface:
-##### Link: https://compsci.adelphi.edu/~proggadeb/DBMSFinal/
 
 When an user goes to the website https://compsci.adelphi.edu/~proggadeb/DBMSFinal/ they will see this login system before they have the ability to see the incidents occurring in the CSIRT System. If the user attempts to bypass the login page, they will be redirected back to it until a correct username and password are submitted.
 

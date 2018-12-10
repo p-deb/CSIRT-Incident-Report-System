@@ -1,14 +1,16 @@
 # DBMSFinal
 
-Mini Project: CSIRT Incident Report System
-Lynoska Garcia and Progga Deb
-CSC 263: Database Management Systems
-December 10th, 2018  
+Mini Project: CSIRT Incident Report System  
+Lynoska Garcia and Progga Deb  
+CSC 263: Database Management Systems  
+December 10th, 2018
+
 
 ## ERD Model
 
 ![ERD Model](/img/image10.png)
-
+
+
 ## MySQL Workbench Data Model
 
 **Assumptions/Explanations:**
@@ -63,7 +65,7 @@ Lastly, they will write details about the incident and then submit.
 If the incident submitted is successfully entered into the database, the user will see the following screen and be redirected to the homepage. If they are not redirected, they click on “click here” to manually be taken back to the homepage.
 
 ![Successfully Submitted](/img/image1.png)
-
+
 ### Bugs and Limitations:
 * When adding multiple participants to a new incident, only the first participant’s information will be recorded. We believe if we made a counter variable that increases as the buttons are pressed, and a loop in the NewIncident.php file could fix this issue.
 * If the “Add Contact” or “Add IP Address” button is clicked, once the new fields are populated, they cannot be removed

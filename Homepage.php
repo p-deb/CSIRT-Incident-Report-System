@@ -1,5 +1,5 @@
 <?php
- include ('session.php'); 
+ include ('session.php'); 	// login session
  include ("connection.php");     //connects to db
 ?>
 <html lang="en">
@@ -10,9 +10,11 @@
 <body>
    <h4> Welcome
 	 <?php
+	//Displays the name of the user currently logged in
 	 $name = mysqli_query($db, "SELECT firstName FROM incidentResponders WHERE username = '$login_session';");
 	 $who = mysqli_fetch_row($name);
 	 echo $who[0]; ?>! </h4>
+<!-- Bar to navigate through system -->
    <h1> CSIRT INCIDENT REPORT SYSTEM </h1>
  <ul>
      <li> <a class= "current" href= "#homepage"> Home </a> </li>
@@ -22,7 +24,7 @@
 </ul>
 
 <br><br>
-
+<!-- Displays queue of all incidents recorded in db -->
 <table class="IncidentsTable">
   <tr class="TableHeader">
     <th id="headerItem"><center>Incident #</center></th>
@@ -33,12 +35,8 @@
   </tr>
 
 <?php
-//        include ("connection.php");     //connects to db
-
         $sql = "SELECT * FROM Incident ORDER BY dateCreated DESC";
         $result = mysqli_query($db,$sql);
-        //$num = mysqli_query
-
         $table = $result->fetch_all();
         {
                 foreach($table as $row) {

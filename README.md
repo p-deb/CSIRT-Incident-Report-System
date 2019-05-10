@@ -25,7 +25,7 @@ Responders are able to insert, update, and delete each component of an incident 
 
 ## Our Web Interface:
 
-When an user goes to the website https://compsci.adelphi.edu/~proggadeb/DBMSFinal/ they will see this login system before they have the ability to see the incidents occurring in the CSIRT System. If the user attempts to bypass the login page, they will be redirected back to it until a correct username and password are submitted.
+When an user goes to the website http://compsci.adelphi.edu/~proggadeb/DBMSFinal/ they will see this login system before they have the ability to see the incidents occurring in the CSIRT System. If the user attempts to bypass the login page, they will be redirected back to it until a correct username and password are submitted.
 
 We have created a general *username*: ```dbms``` and *password* ```fall2018``` for the purposes of this project. We have also created a specific *username* ```xliu``` and *password* ```pwd```.
 
